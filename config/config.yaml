@@ -1,0 +1,9 @@
+SNOWFLAKE_DATABASE : "PROD_PERSONAL_DB"
+SNOWFLAKE_SCHEMA : "ANISH_KUMAR"
+connection_parameters : {
+    "account": "dn76891.eu-west-1",
+    "user": "ANISH.KUMAR@SIGNIFY.COM",
+    "authenticator": "externalbrowser",
+    "warehouse": "PROD_WH_IT",
+    "role": "PROD_ANISH_KUMAR"
+}

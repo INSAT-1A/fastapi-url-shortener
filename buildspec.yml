@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging into AWS ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 590183999299.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Building Docker image...
+      - docker build -t fastapi-url-shortener .
+      - docker tag fastapi-url-shortener:latest 590183999299.dkr.ecr.us-east-1.amazonaws.com/fastapi-url-shortener:latest
+  post_build:
+    commands:
+      - echo Pushing Docker image to ECR...
+      - docker push 590183999299.dkr.ecr.us-east-1.amazonaws.com/fastapi-url-shortener:latest
+      - echo Build completed successfully.
